@@ -1,4 +1,6 @@
 ### 提示：UUID建议使用UUID生成器，谷歌一下：UUID生成。。。。如果无法连通，八成是UUID不符合规定！！
+### UUID传送门： https://www.guidgenerator.com/online-guid-generator.aspx![image](https://user-images.githubusercontent.com/16573987/120898021-bcfdb800-c65b-11eb-8036-ff965764d2d6.png)
+ 
 
 ### 提醒： 滥用可能导致账户被删除！！！ 
 
@@ -52,18 +54,59 @@
 ### CloudFlare Workers反代代码（支持VLESS\VMESS\Trojan-Go的WS模式，可分别用两个账号的应用程序名（UUID与path保持一致），单双号天分别执行，那一个月就有550+550小时）
 
 ```
-const SingleDay = '应用程序名1.herokuapp.com'
-const DoubleDay = '应用程序名2.herokuapp.com'
+
+const _00 = 'xxxxx00a.herokuapp.com'
+const _01 = 'xxxxx01a.herokuapp.com'
+const _02 = 'xxxxx02a.herokuapp.com'
+const _03 = 'xxxxx03a.herokuapp.com'
+const _04 = 'xxxxx04a.herokuapp.com'
+const _05 = 'xxxxx05a.herokuapp.com'
+const _06 = 'xxxxx06a.herokuapp.com'
+const _07 = 'xxxxx07a.herokuapp.com'
+const _08 = 'xxxxx08a.herokuapp.com'
+const _09 = 'xxxxx09a.herokuapp.com'
+
 addEventListener(
     "fetch",event => {
-    
+
         let nd = new Date();
-        if (nd.getDate()%2) {
-            host = SingleDay
-        } else {
-            host = DoubleDay
-        }
-        
+        let x = nd.getDate()%2;
+        nd = nd.getMinutes()/12;
+
+		if(x)
+		{
+			switch (nd){
+			case 0: host=_01 
+			break
+			case 1: host=_03
+			break
+			case 2: host=_05
+			break
+			case 3: host=_07
+			break
+			case 4: host=_09
+			break
+			default: host=_01
+			}
+		}
+		else
+		{
+			switch (nd){
+			case 0: host=_00
+			break
+			case 1: host=_02
+			break
+			case 2: host=_04
+			break
+			case 3: host=_06
+			break
+			case 4: host=_08
+			break
+			default: host=_00
+			}
+		}
+
+
         let url=new URL(event.request.url);
         url.hostname=host;
         let request=new Request(url,event.request);
@@ -72,5 +115,8 @@ addEventListener(
         )
     }
 )
+
 ```
 ### 原作者项目地址：https://github.com/mixool/xrayku
+
+### CF反代代码经过微调，应该有略微提升。
