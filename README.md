@@ -1,7 +1,6 @@
 ### 提示：UUID建议使用UUID生成器，谷歌一下：UUID生成。。。。如果无法连通，八成是UUID不符合规定！！
-### UUID传送门： https://www.guidgenerator.com/online-guid-generator.aspx![image](https://user-images.githubusercontent.com/16573987/120898021-bcfdb800-c65b-11eb-8036-ff965764d2d6.png)
+### UUID传送门： https://www.guidgenerator.com/online-guid-generator.aspx
  
-
 ### 提醒： 滥用可能导致账户被删除！！！ 
 
 ### 以下内容是根据原作者项目说明进行相应修改，方便初学者小白们理解！
