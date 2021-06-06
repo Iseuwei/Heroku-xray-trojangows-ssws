@@ -70,42 +70,22 @@ addEventListener(
     "fetch",event => {
 
         let nd = new Date();
-        let x = nd.getDate()%2;
-        nd = nd.getMinutes()/12;
+        let x = Math.floor(nd.getMinutes()/6);
 
-		if(x)
-		{
-			switch (nd){
-			case 0: host=_01 
-			break
-			case 1: host=_03
-			break
-			case 2: host=_05
-			break
-			case 3: host=_07
-			break
-			case 4: host=_09
-			break
-			default: host=_01
-			}
+		switch (x){
+			case 0: host=_00; break;
+			case 1: host=_01; break;
+			case 2: host=_02; break;
+			case 3: host=_03; break;
+			case 4: host=_04; break;
+			case 5: host=_05; break;
+			case 6: host=_06; break;
+			case 7: host=_07; break;
+			case 8: host=_08; break;
+			case 9: host=_09; break;
+			
+			default: host=_00;
 		}
-		else
-		{
-			switch (nd){
-			case 0: host=_00
-			break
-			case 1: host=_02
-			break
-			case 2: host=_04
-			break
-			case 3: host=_06
-			break
-			case 4: host=_08
-			break
-			default: host=_00
-			}
-		}
-
 
         let url=new URL(event.request.url);
         url.hostname=host;
